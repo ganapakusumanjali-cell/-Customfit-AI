@@ -1,0 +1,281 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Fashion Palette: dark/black, off-white, burgundy/wine */
+  --color-noir: #0e0d0f;
+  --color-charcoal: #171518;
+  --color-surface-dark: #1f1b20;
+  --color-surface-light: #2a252c;
+  
+  --color-wine-dark: #450c18;
+  --color-wine-primary: #7a152d;
+  --color-wine-accent: #9e1d3d;
+  --color-wine-glow: #c9365e;
+  
+  --color-offwhite: #fbf9f6;
+  --color-ecru: #f0ece1;
+  --color-sand: #dfd8cb;
+  --color-muted-stone: #8c8588;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-noir);
+  color: var(--color-offwhite);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animated glowing luxury background keyframes */
+@keyframes pulseGlowSlow {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.22) translate(25px, -20px);
+    opacity: 0.75;
+  }
+}
+
+@keyframes pulseGlowAlt {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.18) translate(-30px, 22px);
+    opacity: 0.68;
+  }
+}
+
+@keyframes slowAtmosphereDrift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-glow-slow {
+  animation: pulseGlowSlow 10s ease-in-out infinite;
+}
+
+.animate-glow-alt {
+  animation: pulseGlowAlt 14s ease-in-out infinite;
+}
+
+/* Subtle Atelier Silk Jacquard & Starlight Weave Overlay */
+.atelier-silk-weave-overlay {
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    radial-gradient(rgba(245, 158, 11, 0.04) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 36px 36px, 72px 72px, 18px 18px, 18px 18px;
+  background-position: 0 0, 18px 18px, 0 0, 0 0;
+}
+
+/* 1. Signature Imperial Bordeaux & Starlit Gold */
+.bg-theme-bordeaux {
+  background-color: #0d0612;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 18% -8%, rgba(225, 29, 72, 0.58) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(168, 85, 247, 0.46) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 45%, rgba(245, 158, 11, 0.36) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(190, 18, 60, 0.52) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(251, 146, 60, 0.38) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(13, 6, 18, 0.2) 0%, rgba(20, 8, 26, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 2. Midnight Royal Sapphire & Celestial Cobalt */
+.bg-theme-sapphire {
+  background-color: #030616;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(37, 99, 235, 0.62) 0%, transparent 65%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(99, 102, 241, 0.52) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(6, 182, 212, 0.38) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(30, 64, 175, 0.58) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(14, 165, 233, 0.42) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(3, 6, 22, 0.2) 0%, rgba(6, 12, 34, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 3. Imperial Emerald & Florentine Gold */
+.bg-theme-emerald {
+  background-color: #021109;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(16, 185, 129, 0.58) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(5, 150, 105, 0.48) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(234, 179, 8, 0.38) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(4, 120, 87, 0.55) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(245, 158, 11, 0.36) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(2, 17, 9, 0.2) 0%, rgba(4, 26, 15, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 4. Champagne Pearl & Luminous Rose Gold */
+.bg-theme-champagne {
+  background-color: #160814;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(244, 114, 182, 0.55) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(251, 146, 60, 0.46) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(245, 158, 11, 0.36) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(225, 29, 72, 0.48) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(253, 186, 116, 0.42) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(22, 8, 20, 0.2) 0%, rgba(32, 12, 30, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 5. Electric Runway Magenta (Paris Fashion Week) */
+.bg-theme-electric {
+  background-color: #0b0318;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(217, 70, 239, 0.62) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(139, 92, 246, 0.54) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(244, 63, 94, 0.45) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(168, 85, 247, 0.56) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(56, 189, 248, 0.40) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(11, 3, 24, 0.2) 0%, rgba(18, 5, 40, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 6. Celestial Aurora Borealis */
+.bg-theme-aurora {
+  background-color: #020d14;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(20, 184, 166, 0.58) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(16, 185, 129, 0.50) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(56, 189, 248, 0.40) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(59, 130, 246, 0.54) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(139, 92, 246, 0.42) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(2, 13, 20, 0.2) 0%, rgba(3, 20, 32, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* 7. Royal Amethyst & Violet Orchid */
+.bg-theme-amethyst {
+  background-color: #090314;
+  background-image: 
+    radial-gradient(ellipse 95% 85% at 16% -8%, rgba(168, 85, 247, 0.60) 0%, transparent 64%),
+    radial-gradient(ellipse 85% 75% at 85% 12%, rgba(217, 70, 239, 0.52) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 50% 48%, rgba(126, 34, 206, 0.44) 0%, transparent 62%),
+    radial-gradient(ellipse 90% 85% at 8% 85%, rgba(192, 38, 211, 0.56) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 75% at 92% 85%, rgba(244, 63, 94, 0.40) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(9, 3, 20, 0.2) 0%, rgba(16, 6, 36, 0.5) 100%);
+  background-attachment: fixed;
+}
+
+/* Backward compatibility */
+.colorful-atelier-bg {
+  composes: bg-theme-bordeaux;
+}
+
+.colorful-orb-rose {
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.56) 0%, rgba(225, 29, 72, 0.28) 45%, rgba(244, 63, 94, 0) 70%);
+}
+
+.colorful-orb-amber {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.48) 0%, rgba(217, 119, 6, 0.24) 45%, rgba(245, 158, 11, 0) 70%);
+}
+
+.colorful-orb-violet {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.52) 0%, rgba(139, 92, 246, 0.26) 45%, rgba(139, 92, 246, 0) 70%);
+}
+
+.colorful-orb-teal {
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.50) 0%, rgba(13, 148, 136, 0.25) 45%, rgba(20, 184, 166, 0) 70%);
+}
+
+.colorful-orb-sapphire {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.58) 0%, rgba(59, 130, 246, 0.28) 45%, rgba(37, 99, 235, 0) 70%);
+}
+
+.colorful-orb-emerald {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.54) 0%, rgba(5, 150, 105, 0.26) 45%, rgba(16, 185, 129, 0) 70%);
+}
+
+.colorful-orb-cyan {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.54) 0%, rgba(14, 165, 233, 0.26) 45%, rgba(6, 182, 212, 0) 70%);
+}
+
+.colorful-orb-fuchsia {
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.58) 0%, rgba(192, 38, 211, 0.28) 45%, rgba(217, 70, 239, 0) 70%);
+}
+
+.font-serif-fashion {
+  font-family: var(--font-serif);
+}
+
+.font-sans-fashion {
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbars for customizer panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(158, 29, 61, 0.35);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(158, 29, 61, 0.6);
+}
+
+/* Fabric visual textures */
+.fabric-pattern-linen {
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 0, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0, rgba(0,0,0,0.04) 1px, transparent 0, transparent 4px);
+}
+
+.fabric-pattern-silk {
+  background: radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
+}
+
+.fabric-pattern-wool {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 15%, transparent 16%);
+  background-size: 6px 6px;
+}
+
+.fabric-pattern-denim {
+  background-image: repeating-linear-gradient(60deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 0, transparent 3px);
+}
+
+/* Print Styles for Technical Specifications */
+@media print {
+  nav, footer, .no-print, button:not(.print-allow) {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+  .print-page {
+    position: static !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+  }
+  .print-page * {
+    color: #111111 !important;
+    border-color: #cccccc !important;
+  }
+}

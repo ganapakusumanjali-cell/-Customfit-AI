@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "email", "createdAt"]
+    },
+    "Design": {
+      "title": "Design",
+      "description": "Custom garment design specification and configuration",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "garmentType": { "type": "string", "maxLength": 50 },
+        "size": { "type": "string", "maxLength": 20 },
+        "measurements": { "type": "object" },
+        "length": { "type": "string", "maxLength": 50 },
+        "sleeve": { "type": "string", "maxLength": 50 },
+        "neckline": { "type": "string", "maxLength": 50 },
+        "fit": { "type": "string", "maxLength": 50 },
+        "color": { "type": "string", "maxLength": 50 },
+        "colorName": { "type": "string", "maxLength": 50 },
+        "fabric": { "type": "string", "maxLength": 50 },
+        "pockets": { "type": "string", "maxLength": 50 },
+        "closure": { "type": "string", "maxLength": 50 },
+        "occasion": { "type": "string", "maxLength": 50 },
+        "climate": { "type": "string", "maxLength": 50 },
+        "estimatedPrice": { "type": "number" },
+        "productionTime": { "type": "string", "maxLength": 50 },
+        "materialRequired": { "type": "string", "maxLength": 50 },
+        "notes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "garmentType", "size", "color", "fabric", "estimatedPrice", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order containing a customized garment",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "designId": { "type": "string", "maxLength": 128 },
+        "designSummary": { "type": "object" },
+        "status": { "type": "string", "enum": ["Design Submitted", "Production", "Quality Check", "Shipped", "Delivered"] },
+        "price": { "type": "number" },
+        "deliveryAddress": { "type": "object" },
+        "estimatedDelivery": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "designId", "status", "price", "createdAt"]
+    },
+    "MeasurementProfile": {
+      "title": "MeasurementProfile",
+      "description": "Saved customer measurement set",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 80 },
+        "height": { "type": "number" },
+        "chest": { "type": "number" },
+        "waist": { "type": "number" },
+        "hip": { "type": "number" },
+        "shoulder": { "type": "number" },
+        "sleeveLength": { "type": "number" },
+        "garmentLength": { "type": "number" },
+        "neckCircumference": { "type": "number" },
+        "unit": { "type": "string", "enum": ["cm", "inches"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Private user account profile"
+    },
+    "/designs/{designId}": {
+      "schema": "Design",
+      "description": "Individual customized garment designs created by users"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Placed orders and production tracking"
+    },
+    "/measurements/{measurementId}": {
+      "schema": "MeasurementProfile",
+      "description": "User saved measurement profiles"
+    }
+  }
+}
